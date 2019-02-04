@@ -51,7 +51,7 @@ public class CategoriaResource {
 		return categoria.isPresent() ? ResponseEntity.ok(categoria.get()) : ResponseEntity.notFound().build();
 	}
 	
-	@DeleteMapping("{codigo}")
+	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remover(@PathVariable Long id) {
 		categoriaRepository.deleteById(id);

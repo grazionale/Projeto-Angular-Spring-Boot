@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="lancamento")
+@Table(name = "lancamento")
 public class Lancamento {
 
 	@Id
@@ -23,26 +23,26 @@ public class Lancamento {
 	private Long codigo;
 	
 	private String descricao;
-	
-	@Column(name="data_vencimento")
+
+	@Column(name = "data_vencimento")
 	private LocalDate dataVencimento;
-	
-	@Column(name="data_pagamento")
+
+	@Column(name = "data_pagamento")
 	private LocalDate dataPagamento;
-	
+
 	private BigDecimal valor;
-	
+
 	private String observacao;
-	
+
 	@Enumerated(EnumType.STRING)
 	private TipoLancamento tipo;
-	
+
 	@ManyToOne
-	@JoinColumn(name="codigo_categoria")
+	@JoinColumn(name = "codigo_categoria")
 	private Categoria categoria;
-	
+
 	@ManyToOne
-	@JoinColumn(name="codigo_pessoa")
+	@JoinColumn(name = "codigo_pessoa")
 	private Pessoa pessoa;
 
 	public Long getCodigo() {
@@ -141,6 +141,5 @@ public class Lancamento {
 			return false;
 		return true;
 	}
-	
-	
+
 }

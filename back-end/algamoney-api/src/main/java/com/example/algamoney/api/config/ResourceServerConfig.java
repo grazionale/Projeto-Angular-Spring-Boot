@@ -3,8 +3,6 @@ package com.example.algamoney.api.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,7 +22,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	@Autowired
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-			.withUser("admin").password(passwordEncoder().encode("admin")).roles("ROLE");
+			.withUser("admin").password("admin").roles("ROLE");
 	}
 	
 	//Informa que todas as requisições precisam passar por autenticação, exceto categorias.
@@ -35,7 +33,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 			.anyRequest().authenticated().and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and() //API não irá manter nenhum estado
 			.csrf().disable();	//Cross side request for forgery, é basicamente para desabilitar um javascrit injection na aplicação. Como é apenas uma API, então podemos desabilitar. 
-	}
+	}	
 	
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {

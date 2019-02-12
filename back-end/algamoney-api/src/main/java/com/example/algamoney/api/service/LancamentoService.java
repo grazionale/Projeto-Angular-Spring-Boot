@@ -1,7 +1,5 @@
 package com.example.algamoney.api.service;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +21,9 @@ public class LancamentoService {
 	private LancamentoRepository lancamentoRepository;
 	
 	public Lancamento save(@Valid Lancamento lancamento) {
-		Optional<Pessoa> pessoa = pessoaRepository.findById(lancamento.getPessoa().getCodigo());
+		Pessoa pessoa = pessoaRepository.findOne(lancamento.getPessoa().getCodigo());
 
-		if(!pessoa.isPresent() || ! pessoa.get().isAtivo()) {
+		if(pessoa == null || !pessoa.isAtivo()) {
 			throw new PessoaInexistenteOuInativaException();
 		}
 		return lancamentoRepository.save(lancamento);

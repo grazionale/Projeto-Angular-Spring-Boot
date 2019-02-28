@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    color: #dedede;
+    background-color: #3F3F3F;
+}
+
+label{
+    font-weight: bold;
+}
+
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+h1{
+    color: #CC285C;
+}
+
+.col-valor{
+    width: 120px;
+    text-align: right;
+}
+
+.col-data{
+    width: 120px;
+    text-align: center;
+}

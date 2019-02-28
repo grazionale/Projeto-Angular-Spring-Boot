@@ -8,10 +8,13 @@ import {TabViewModule} from 'primeng/components/tabview/tabview';
 import {ButtonModule} from 'primeng/components/button/button';
 import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import { DataTableModule } from 'primeng/components/datatable/datatable';
+import {TooltipModule} from 'primeng/components/tooltip/tooltip';
+import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LancamentosPesquisaComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import { DataTableModule } from 'primeng/components/datatable/datatable';
     TabViewModule,
     ButtonModule,
     InputTextModule,
-    DataTableModule
+    DataTableModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

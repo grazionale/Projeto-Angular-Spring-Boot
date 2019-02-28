@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Lançamentos</h1>
+      </div>
+  
+      <div class="ui-g-12 ui-fluid">
+        <label for="descricao">Descrição</label>
+        <input type="text" pInputText>
+      </div>
+  
+      <div class="ui-g-12">
+        <label for="vencimento" style="display: block">Vencimento</label>
+        <input type="text" pInputText style="width: 95px;">
+        <label for="ate">até</label>
+        <input type="text" pInputText style="width: 95px;">
+      </div>
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Pesquisar"></button>
+      </div>
+    </div>
+  
+    <div class="ui-g">
+      <div class="ui-g-12">
+          <p-dataTable [value]="lancamentos" [paginator]="true" [rows]="5" [responsive]="true">
+              <p-column field="pessoa" header="Pessoa"></p-column>
+              <p-column field="descricao" header="Descrição"></p-column>
+              <p-column field="dataVencimento" header="Vencimento" styleClass="col-data"></p-column>
+              <p-column field="dataPagamento" header="Pagamento" styleClass="col-data"></p-column>
+              <p-column field="valor" header="Valor" styleClass="col-valor">
+                <ng-template let-lanc="rowData" pTemplate="body">
+                  <span [style.color]="lanc.tipo === 'DESPESA' ? '#ff4242' : '#5f5fff'">{{lanc.valor}}</span>
+                </ng-template>
+              </p-column>
+              <p-column styleClass="col-acoes">
+                <ng-template pTemplate="body">
+                  <a pButton icon="pi pi-pencil" style="margin-right: 5px;" pTooltip="Editar" tooltipPosition="left"></a>
+                  <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="right"></button>
+                </ng-template>
+              </p-column>
+          </p-dataTable>
+      </div>
+  
+      <div class="ui-g-12">
+        <a pButton label="Novo Lançamento"></a>
+      </div>
+    </div>
+  </div>
+  

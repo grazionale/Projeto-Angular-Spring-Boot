@@ -24,4 +24,8 @@ export class LancamentosPesquisaComponent implements OnInit {
       dataPagamento: null, valor: 180, pessoa: 'Academia Top' }
   ];
 
+
+  ngOnInit() {
+  }
+
 }

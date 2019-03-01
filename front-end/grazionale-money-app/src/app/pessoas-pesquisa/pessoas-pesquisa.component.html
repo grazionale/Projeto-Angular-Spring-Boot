@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h1>Pessoas</h1>
+    </div>
+    <div class="ui-g-12 ui-fluid">
+      <label for="pesquisar">Nome</label>
+      <input type="text" pInputText style="display: block">
+    </div>
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Pesquisar"></button>
+    </div>
+  </div>
+
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <p-dataTable [value]="pessoas" [paginator]="true" [rows]="5" [responsive]="true">
+        <p-column field="nome" header="Nome"></p-column>
+        <p-column field="cidade" header="Cidade"></p-column>
+        <p-column field="estado" header="Estado"></p-column>
+        <p-column field="status" header="Status">
+          <ng-template let-pessoa="rowData" pTemplate="body">
+            <a [pTooltip]="pessoa.status ? 'Desativar' : 'Ativar'" tooltipPosition="top"
+              [style.color]="pessoa.status === '1' ? 'Ativo' : 'Desativo'"
+              href="javascript:;">{{pessoa.status ? 'Ativo' : 'Inativo'}}</a>
+          </ng-template>
+        </p-column>
+        <p-column field="" header="" class="col-acoes">
+          <ng-template pTemplate="body">
+              <a pButton icon="pi pi-pencil" style="margin-right: 5px;" pTooltip="Editar" tooltipPosition="left"></a>
+              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="right"></button>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+    </div>
+  </div>
+</div>
